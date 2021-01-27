@@ -6,33 +6,11 @@ export const Main = styled.main`
     background: red;
     overflow: hidden;
 
-    .offset {
-      width: 100%;
-      height: 100%;
-    }
-
     .a {
       background: #f5f1ea;
       height: 100%;
       display: flex;
       align-items: flex-end;
-
-      .left-side {
-        width: 50%;
-        height: 100%;
-        background: #7dbb91;
-      }
-
-      .right-side {
-        width: 50%;
-        height: 100%;
-
-        .right-image {
-          background: #7dbb91;
-          width: 80%;
-          height: 100%;
-        }
-      }
     }
 
     .b {

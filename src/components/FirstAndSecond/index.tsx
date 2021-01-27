@@ -1,7 +1,9 @@
 import React from "react";
-import { motion, useTransform, useViewportScroll } from "framer-motion";
+import { useTransform, useViewportScroll } from "framer-motion";
 
-import { Sticky } from "../../styles/index";
+import {Sticky} from '../../styles/index';
+
+import { ContentOffset, LeftSideContent, RightSideContent, Content, RightSideImage } from './styles';
 
 const FirstAndSecond: React.FC = () => {
   const { scrollYProgress } = useViewportScroll();
@@ -17,19 +19,13 @@ const FirstAndSecond: React.FC = () => {
     <Sticky className="second">
       <First />
 
-      <motion.div
+      <Content
         style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "100vh",
-          borderRadius: "4px",
-          border: "4px solid #fff",
           opacity: frameOpacity,
           scale: frameScale,
         }}
-      />
+      >
+      </Content>
     </Sticky>
   );
 };
@@ -81,32 +77,29 @@ const First: React.FC = () => {
         borderRadius: firstRadius,
       }}
     >
-      <motion.div
-        className="offset"
+      <ContentOffset
         style={{
           y: offsetY,
         }}
       >
         <div className="a">
-          <motion.div
-            className="left-side"
+          <LeftSideContent
             style={{
               height: leftSideHeight,
             }}
           />
-          <div className="right-side">
-            <motion.div
-              className="right-image"
+          <RightSideContent>
+            <RightSideImage
               style={{
                 y: rightSideY,
                 scale: rightSideScale,
               }}
             />
-          </div>
+          </RightSideContent>
         </div>
         <div className="b"></div>
         <div className="c"></div>
-      </motion.div>
+      </ContentOffset>
     </Sticky>
   );
 };
